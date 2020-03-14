@@ -67,7 +67,7 @@ jobs:
     - name: cdope
       run: 
         cd openwrt  
-        cp ../lede/package/lean/ package/ -R
+        cp -r ../lede/package/lean/ package/
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
