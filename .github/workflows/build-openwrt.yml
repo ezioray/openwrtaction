@@ -68,7 +68,7 @@ jobs:
     - name: cplean
       run: 
           cd openwrt
-          cp openwrt1/package/lean/package/  -R
+          cp openwrt1/package/lean/.  package
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
