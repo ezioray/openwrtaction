@@ -66,9 +66,7 @@ jobs:
       run: mv openwrt-sdk-ramips-mt7621_gcc-8.3.0_musl.Linux-x86_64 openwrt
       
     - name: cplean
-      run: 
-          cd openwrt
-          cp openwrt1/package/lean/.  package
+      run: cp openwrt1/package/lean/.  openwrt/package
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
