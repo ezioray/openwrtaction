@@ -26,7 +26,7 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -65,8 +65,9 @@ jobs:
     - name: rename
       run: mv openwrt-sdk-ramips-mt7621_gcc-8.3.0_musl.Linux-x86_64 openwrt
       
-    - name: cplean
-      run: cp openwrt1/package/lean/.  openwrt/package
+    - name: SSH connection to Actions
+      uses: P3TERX/debugger-action@master
+      if: env.SSH_ACTIONS == 'true'
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
