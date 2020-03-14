@@ -64,10 +64,9 @@ jobs:
       run: tar -xvf openwrt-sdk-ramips-mt7621_gcc-8.3.0_musl.Linux-x86_64.tar
     - name: rename
       run: mv openwrt-sdk-ramips-mt7621_gcc-8.3.0_musl.Linux-x86_64 openwrt
-    - name: cdope
-      run: 
-        cd openwrt  
-        cp -r ../openwrt1/package/lean/ package/
+      
+    - name: cplean
+      run: cp -r openwrt1/package/lean/ package/  openwrt/package/
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
