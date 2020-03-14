@@ -54,12 +54,18 @@ jobs:
 
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt1
+      
+    - name: download openwert
       run: wget http://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-sdk-ramips-mt7621_gcc-8.3.0_musl.Linux-x86_64.tar.xz
+    
+    - name: unzipxz
       run: xz -d openwrt-sdk-ramips-mt7621_gcc-8.3.0_musl.Linux-x86_64.tar.xz
+    - name: uziptar
       run: tar -xvf openwrt-sdk-ramips-mt7621_gcc-8.3.0_musl.Linux-x86_64.tar
+    - name: rename
       run: mv openwrt-sdk-ramips-mt7621_gcc-8.3.0_musl.Linux-x86_64 openwrt
-      run: cd openwrt
-      run: cp ../lede/package/lean/ package/ -R
+    - name: cdope
+      run: cd openwrt &&  cp ../lede/package/lean/ package/ -R
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
